@@ -33,7 +33,7 @@ public final class AfkInvincibility extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        if (player.getNearbyEntities(0.1, 0.1, 0.1).isEmpty()) {
+        if (player.getNearbyEntities(1, 1, 1).isEmpty()) {
             updateActivity(player);
         }
     }
@@ -75,15 +75,7 @@ public final class AfkInvincibility extends JavaPlugin implements Listener {
         }.runTaskTimer(this, 0, 20); // Run every second
     }
 
-    @EventHandler
-    public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
-        if (event.getEntity() instanceof Player) {
-            Player player = (Player) event.getEntity();
-            if (isPlayerInvulnerable(player)) {
-                event.setCancelled(true);
-            }
-        }
-    }
+
 
     @EventHandler
     public void onEntityDamage(EntityDamageEvent event) {
