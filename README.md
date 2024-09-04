@@ -1,2 +1,2 @@
 # AfkInvincibility
-Minecraft paper plugin for automatic afk invincibility
+Minecraft spigot plugin for automatic afk invincibility
